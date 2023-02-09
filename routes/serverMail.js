@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const router = express.Router();
 const cors = require("cors");
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
@@ -15,7 +16,7 @@ const client = mailgun.client({
   key: process.env.MAILGUN_API_KEY,
 });
 
-app.post("/form", async (req, res) => {
+router.post("/form", async (req, res) => {
   console.log("route /form");
 
   // Création message mail gun
